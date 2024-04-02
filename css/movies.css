@@ -60,21 +60,19 @@ h1, h2, h3 {
 .movie-list {
     display: grid;
     margin-block-start: 2em;
-    
     gap: 1em;
+    justify-content: center;
 }
 
 .movie-list div {
     display: grid;
-    grid-template-rows: 50px 1fr;
-    row-gap: 1em;
+    max-width: 20em;  
+    grid-template-rows: 13em 3.2em 1fr;
+    row-gap: 0.5em;
     border: 1px solid gray;
-    padding: 1em;
-    background-color:antiquewhite;
-    
-    
+    padding: 0.5em;
+    background-color:antiquewhite;   
 }
-
 
 
 .movie-list div:nth-child(3) {
@@ -83,18 +81,24 @@ h1, h2, h3 {
 
 
 .movie-list .movie-card h3{
+    display: grid;
     text-wrap: balance;
     padding: 0;
     margin: 0;
     background-color: lightgray;
-    
+    /* place-self: center; */
+    place-items: center;
     
 }
 
 .movie-list .movie-card p{
-    text-wrap: pretty;
-    
-    
+    text-wrap: pretty; 
     padding: 0;
     margin: 0;
+   
+}
+
+.movie-list .movie-card img {
+    height: 13em;
+    justify-self: center;
 }

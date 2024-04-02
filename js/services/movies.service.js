@@ -31,7 +31,7 @@ function getGenres(onSuccess) {
 	req.send()
 }
 
-function getMovies(onSuccess, id, genre){
+function getMovies(onSuccess, id){
     if(gCacheMovies[id]){
         console.log('Getting from cache...')
         onSuccess(gCacheMovies[id])
@@ -48,11 +48,17 @@ function getMovies(onSuccess, id, genre){
 			const rawData = JSON.parse(req.responseText)
             console.log('Getting from network...')
 
+            
+
             const data = rawData.results.map(result => {
+
+                const image = `https://image.tmdb.org/t/p/w500` + result.poster_path 
+                console.log('image', image)
+
                 return {
                     title: result.title,
                     overview: result.overview,
-                    image: result.poster_path,
+                    image,
                 }
             })
 
