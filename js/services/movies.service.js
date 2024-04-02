@@ -34,7 +34,7 @@ function getGenres(onSuccess) {
 function getMovies(onSuccess, id, genre){
     if(gCacheMovies[id]){
         console.log('Getting from cache...')
-        onSuccess(gCacheMovies[id], id, genre)
+        onSuccess(gCacheMovies[id])
         return 
     }
  
@@ -56,7 +56,7 @@ function getMovies(onSuccess, id, genre){
                 }
             })
 
-            onSuccess(data, id, genre)
+            onSuccess(data)
             gCacheMovies[id] = data
             saveToStorage('moviesCache', gCacheMovies)
 		}

@@ -8,18 +8,93 @@
 }
 
 body {
+    display: grid;
+    row-gap: 1em;
+    
     background-color: var(--clr-bg);
 
     color: var(--clr-text);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /* text-align: center; */
+    
 }
 
-h1 {
+h1, h2, h3 {
     text-align: center;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-.main-layout {
+
+.genre-list {
+    justify-self: center;
     display: grid;
-    grid-template-columns: 20px 1fr 20px;
+    width: max-content;
+    border: 2px solid gray;
+}
+
+.genre-list > * {
+    height: 3.1em;
+    width: 12.5em;
+    display: grid;
+    place-items: center; 
+}
+
+.genre-list div:nth-child(5n) {
+    grid-column: 5;
+}
+.genre-list div:nth-child(odd) {
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
+}
+
+.genre-list > *:hover {
+    cursor: pointer;
+    color: #d87093;
+}
+
+.genre-list div.clicked {
+    background-color: #abc8d1;
+    border: 1px solid #d87093;
+}
+
+.movie-list {
+    display: grid;
+    margin-block-start: 2em;
+    
+    gap: 1em;
+}
+
+.movie-list div {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    row-gap: 1em;
+    border: 1px solid gray;
+    padding: 1em;
+    background-color:antiquewhite;
+    
+    
+}
+
+
+
+.movie-list div:nth-child(3) {
+    grid-column: 3;
+}
+
+
+.movie-list .movie-card h3{
+    text-wrap: balance;
+    padding: 0;
+    margin: 0;
+    background-color: lightgray;
+    
+    
+}
+
+.movie-list .movie-card p{
+    text-wrap: pretty;
+    
+    
+    padding: 0;
+    margin: 0;
 }
