@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/address-book.css">
+    <title>Address Book</title>
+</head>
+
+<body onload="onInit()">
+
+    <h1>Address Book</h1>
+    <input 
+            name="name" type="search"
+            list="names" placeholder="Type a name" />
+
+    <section class="address-book-data hidden">
+            <div class="cards"></div>
+            <section class="name-list"></section>
+    </section>
+    <img src="img/loader.svg" alt="loader" class="loader hidden">
+    <h2 class="no-results hidden">No Results</h2>
+
+    <datalist id="names">
+        <option value="Kenya Monroe"></option>
+        <option value="Zachary Newby"></option>
+        <option value="Trinelveli Brill"></option>
+        <option value="Dora Shebish"></option>
+        <option value="Truefelia Beebe"></option>
+    </datalist>
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/address-book.service.js"></script>
+
+    <script src="js/address-book.controller.js"></script>
+</body>
+
+</html>

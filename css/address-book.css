@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-text: #2e2e2e;
+    --clr-bg: #fafafa;
+}
+
+body {
+    background-color: var(--clr-bg);
+
+    color: var(--clr-text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.loader {
+    display: block;
+    max-width: 100%;
+    margin: 100px auto;
+    color: aquamarine;
+}
+
+/* .name-list {
+    max-width: 300px;
+    max-height: 6.3lh;
+    overflow: scroll;
+
+    list-style: none;
+    padding: 0;
+    margin-block-start: 60px;
+    margin-inline: auto;
+
+    line-height: 1.5;
+} */
+
+.hidden {
+    display: none;
+}
