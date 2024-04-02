@@ -1,5 +1,5 @@
 'use strict'
-
+ 
 var gAddressBook = null
 
 function onInit() {
