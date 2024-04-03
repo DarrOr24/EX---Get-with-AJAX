@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-text: white;
+    --clr-bg: #429251;
+}
+
+body {
+    display: grid;
+    /* height: 100vh; */
+    justify-content: center;
+}
+
+.main-container {
+    display: grid;
+    justify-content: center;
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+
+    height: 200px;
+    width: 400px;
+    margin: auto;
+    padding: 2em;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h1{
+    text-transform: uppercase;
+}
+
+h2 {
+    color: lightgray;
+    align-self: start;
+}
+
+h1, input {
+    align-self: end;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    padding: 1em;
+    height: 30px;
+}
