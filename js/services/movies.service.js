@@ -3,21 +3,16 @@
 var gCacheGenres = loadFromStorage('genresCache') || []
 var gCacheMovies = loadFromStorage('moviesCache') || {}
 
-
 function getGenres(onSuccess) {
-
     if(gCacheGenres.length > 0){
         console.log('Getting from cache...')
         onSuccess(gCacheGenres)
         return 
     }
-    
     const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=43b2712ec9502986912ef9345a0766e7 `
-    
 	const req = new XMLHttpRequest()
 
 	req.onreadystatechange = () => {
-
 		if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
 			const data = JSON.parse(req.responseText)
             console.log('Getting from network...')
@@ -39,29 +34,20 @@ function getMovies(onSuccess, id){
     }
  
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=43b2712ec9502986912ef9345a0766e7&with_genres=${id}`
-    
 	const req = new XMLHttpRequest()
 
 	req.onreadystatechange = () => {
-
 		if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
 			const rawData = JSON.parse(req.responseText)
             console.log('Getting from network...')
-
-            
-
             const data = rawData.results.map(result => {
-
                 const image = `https://image.tmdb.org/t/p/w500` + result.poster_path 
-                console.log('image', image)
-
                 return {
                     title: result.title,
                     overview: result.overview,
                     image,
                 }
             })
-
             onSuccess(data)
             gCacheMovies[id] = data
             saveToStorage('moviesCache', gCacheMovies)
