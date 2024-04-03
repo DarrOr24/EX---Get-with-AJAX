@@ -10,8 +10,6 @@ function renderPokemons(data){
         data = data.results
     }
 
-    console.log(data)
-
     data.forEach(pokemon => {
         getPoke(renderPokeInfo, pokemon.url)
     })
@@ -44,7 +42,6 @@ function renderPokemonCards(sortedData, key='front_default'){
 }
 
 function renderPokeInfo(pokemon){
-    console.log(pokemon.sprites)
     gCachePokemons[pokemon.id - 1].weight = pokemon.weight 
     gCachePokemons[pokemon.id - 1].imgs = pokemon.sprites 
     savePokemonCache(gCachePokemons)
