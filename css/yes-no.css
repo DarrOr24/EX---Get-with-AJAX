@@ -9,11 +9,11 @@
 
 body {
     display: grid;
-    /* height: 100vh; */
     justify-content: center;
+    row-gap: 2em;
 }
 
-.main-container {
+.question-box {
     display: grid;
     justify-content: center;
     background-color: var(--clr-bg);
@@ -49,4 +49,11 @@ input {
     border-radius: 10px;
     padding: 1em;
     height: 30px;
+}
+
+.answer {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    text-transform: uppercase;
 }
