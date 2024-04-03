@@ -1,12 +1,11 @@
 'use strict'
 
-var gCacheGenres = loadFromStorage('genresCache') || []
-var gCacheMovies = loadFromStorage('moviesCache') || {}
-
 function getGenres(onSuccess) {
-    if(gCacheGenres.length > 0){
+    const cacheGenres = loadFromStorage('genresCache') || []
+
+    if(cacheGenres.length > 0){
         console.log('Getting from cache...')
-        onSuccess(gCacheGenres)
+        onSuccess(cacheGenres)
         return 
     }
     const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=43b2712ec9502986912ef9345a0766e7 `
@@ -17,8 +16,8 @@ function getGenres(onSuccess) {
 			const data = JSON.parse(req.responseText)
             console.log('Getting from network...')
 			onSuccess(data)
-            gCacheGenres = data.genres
-            saveToStorage('genresCache', gCacheGenres)
+            cacheGenres = data.genres
+            saveToStorage('genresCache', cacheGenres)
 		}
 	}
 
@@ -27,9 +26,11 @@ function getGenres(onSuccess) {
 }
 
 function getMovies(onSuccess, id){
-    if(gCacheMovies[id]){
+    const cacheMovies = loadFromStorage('moviesCache') || {}
+
+    if(cacheMovies[id]){
         console.log('Getting from cache...')
-        onSuccess(gCacheMovies[id])
+        onSuccess(cacheMovies[id])
         return 
     }
  
@@ -49,8 +50,8 @@ function getMovies(onSuccess, id){
                 }
             })
             onSuccess(data)
-            gCacheMovies[id] = data
-            saveToStorage('moviesCache', gCacheMovies)
+            cacheMovies[id] = data
+            saveToStorage('moviesCache', cacheMovies)
 		}
 	}
 

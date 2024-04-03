@@ -51,9 +51,36 @@ input {
     height: 30px;
 }
 
-.answer {
+img {
+    height: 200px;
+    
+}
+
+.answer-display {
     display: grid;
-    place-content: center;
-    text-align: center;
+    column-gap: 1em;
+}
+
+.step1-ans, .step1-img {
+    grid-column: 1;
+}
+
+.step1-ans {
     text-transform: uppercase;
+}
+
+.step1-ans, .step2-ans {
+    grid-row: 1;
+    text-align: center;
+}
+.step2-ans, .step2-img, .step2-joke {
+    grid-column: 2;
+}
+
+.hidden {
+    display: none;
+}
+
+.step2-joke {
+    max-width: 300px;
 }

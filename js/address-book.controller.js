@@ -1,14 +1,12 @@
 'use strict'
  
-var gAddressBook = null
-
 function onInit() {
     getNames(renderCards)   
 }
 
 function renderCards(data) {
        const strHtml = data.map((card, idx) => `
-                <div class = card card${idx+1}>
+                <div class = card>
                     <h2>${card.fname} ${card.lname}</h2> 
                     <img src="https://robohash.org/{${idx+1}}?set=set5" alt="">
                     <div class="card-text">

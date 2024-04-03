@@ -12,16 +12,10 @@ body {
 
     color: var(--clr-text);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    /* text-align: center; */
 }
 
 h1 {
     text-align: center;
-}
-
-.main-layout {
-    display: grid;
-    grid-template-columns: 20px 1fr 20px;
 }
 
 .cards {
