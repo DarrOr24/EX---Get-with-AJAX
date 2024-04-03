@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="css/pokemons.css">
     <title>Pokemons</title>
 </head>
-<body>
+<body onload="onInit()">
+
+    <h1>POKEMONS</h1>
+
+
+    <section class="pokemons-list"></section>
     
 
     <script src="lib/jquery-3.7.1.js"></script>
 
+    <script src="js/services/util.service.js"></script>
     <script src="js/services/pokemons.service.js"></script>
 
     <script src="js/pokemons.controller.js"></script>

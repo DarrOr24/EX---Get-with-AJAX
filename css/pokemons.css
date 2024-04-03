@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-text: #edc8e1;
+    --clr-bg: #4c189a;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; 
+    display: grid;
+    row-gap: 1em;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+.pokemons-list{
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 1em;
+}
+
+ .pokemons-list .pokemon-card:nth-child(even) {
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
+
+}
+
+ .pokemons-list .pokemon-card:nth-child(odd) {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+
+}
+
+ .pokemons-list .pokemon-card:nth-child(5n) {
+   grid-column:5;
+
+}
+
+ .pokemons-list .pokemon-card div:first-of-type {
+   text-transform: capitalize;
+
+}
+
+
