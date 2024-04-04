@@ -1,7 +1,7 @@
 'use strict'
 
 function getGenres(onSuccess) {
-    const cacheGenres = loadFromStorage('genresCache') || []
+    var cacheGenres = loadFromStorage('genresCache') || []
 
     if(cacheGenres.length > 0){
         console.log('Getting from cache...')
@@ -15,7 +15,7 @@ function getGenres(onSuccess) {
 		if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
 			const data = JSON.parse(req.responseText)
             console.log('Getting from network...')
-			onSuccess(data)
+			onSuccess(data.genres)
             cacheGenres = data.genres
             saveToStorage('genresCache', cacheGenres)
 		}
