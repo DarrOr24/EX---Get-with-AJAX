@@ -10,11 +10,21 @@ function renderPokemons(data){
         data = data.results
     }
 
-    data.forEach(pokemon => {
-        getPoke(renderPokeInfo, pokemon.url)
-    })
+    if (gCacheOnePokemon.length>0){
+        console.log('cache cachon')
+        data.forEach((pokemon, idx) => {
+            pokemon.weight = gCacheOnePokemon[idx].weight 
+            pokemon.imgs = gCacheOnePokemon[idx].sprites 
+            savePokemonCache(gCachePokemons)
+        })
+        
+    } else{
+        console.log('network baby')
+        data.forEach(pokemon => {
+            getPoke(renderPokeInfo, pokemon.url)
+        })
+    }
 
-    
     const sortedData = gCachePokemons.slice()
     sortPokemonsList(sortedData)
 
@@ -24,9 +34,6 @@ function renderPokemons(data){
         setTimeout(renderPokemonCards, 1000, sortedData, 'front_default')
         
     }, 1500)
-
-    
-    
 }
 
 function renderPokemonCards(sortedData, key='front_default'){
@@ -42,8 +49,14 @@ function renderPokemonCards(sortedData, key='front_default'){
 }
 
 function renderPokeInfo(pokemon){
+    saveOnePokemon(pokemon)
+    
     gCachePokemons[pokemon.id - 1].weight = pokemon.weight 
     gCachePokemons[pokemon.id - 1].imgs = pokemon.sprites 
-    savePokemonCache(gCachePokemons)
-    
+    savePokemonCache(gCachePokemons) 
+}
+
+function onDownloadCSV(elLink){
+    const csvContent = getPokeCSV()
+    elLink.href = 'data:text/csv;charset=utf-8,' + csvContent
 }
